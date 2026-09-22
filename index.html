@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cowstray Games - Unity Game Developer & Asset Creator</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Load FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        neon: {
+                            blue: '#00f3ff',
+                            purple: '#bc13fe'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Neon Glow Text */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(188, 19, 254, 0.7), 0 0 20px rgba(188, 19, 254, 0.5);
+        }
+        
+        .text-glow-blue {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.7), 0 0 20px rgba(0, 243, 255, 0.5);
+        }
+
+        /* Custom Neon Box Shadow */
+        .box-glow:hover {
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.5), 0 0 30px rgba(0, 243, 255, 0.3);
+            border-color: #bc13fe;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(to right, #00f3ff, #bc13fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Smooth reveal for sections */
+        section {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Decorative background elements */
+        .bg-blob {
+            position: absolute;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased relative">
+
+    <!-- Background glowing orbs -->
+    <div class="bg-blob w-96 h-96 bg-neon-purple top-0 left-[-10%] rounded-full mix-blend-screen animate-pulse-slow"></div>
+    <div class="bg-blob w-96 h-96 bg-neon-blue bottom-0 right-[-10%] rounded-full mix-blend-screen animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 bg-darker/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad text-neon-purple"></i>
+                        Cowstray <span class="text-neon-blue">Games</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-neon-blue transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="hover:text-neon-purple transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#assets" class="hover:text-neon-blue transition-colors px-3 py-2 rounded-md text-sm font-medium">Assets</a>
+                        <a href="#contact" class="hover:text-neon-purple transition-colors px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="text-center max-w-4xl mx-auto z-10">
+            <h2 class="text-neon-blue font-semibold tracking-widest uppercase mb-4 text-sm md:text-base">Level up your game</h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                Welcome to <br />
+                <span class="gradient-text">Cowstray Games</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 font-light max-w-2xl mx-auto">
+                Unity Game Developer & Asset Creator
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#assets" class="bg-gradient-to-r from-neon-blue to-neon-purple text-white font-bold py-3 px-8 rounded-full shadow-[0_0_20px_rgba(188,19,254,0.4)] hover:shadow-[0_0_30px_rgba(0,243,255,0.6)] hover:scale-105 transition-all duration-300">
+                    Explore Assets
+                </a>
+                <a href="#about" class="bg-transparent border border-gray-600 text-white font-bold py-3 px-8 rounded-full hover:border-neon-blue hover:text-neon-blue transition-all duration-300">
+                    Who am I?
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark/50 relative border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">About <span class="text-neon-purple">Me</span></h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-neon-purple to-neon-blue mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        I create high-quality <strong class="text-white">Unity assets, 3D game assets, environments, characters, and visual effects</strong> for game development.
+                    </p>
+                    <p>
+                        My mission is to empower fellow developers by providing top-tier resources that bring game worlds to life. Whether you're building an indie darling or a AAA title, my assets are optimized, ready-to-use, and visually stunning.
+                    </p>
+                    <div class="flex gap-4 pt-4">
+                        <div class="flex items-center gap-2 bg-gray-900 px-4 py-2 rounded-lg border border-gray-800">
+                            <i class="fa-brands fa-unity text-white text-xl"></i>
+                            <span class="font-semibold text-sm">Unity3D</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-gray-900 px-4 py-2 rounded-lg border border-gray-800">
+                            <i class="fa-solid fa-cube text-neon-blue text-xl"></i>
+                            <span class="font-semibold text-sm">3D Modeling</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-gray-900 px-4 py-2 rounded-lg border border-gray-800">
+                            <i class="fa-solid fa-wand-magic-sparkles text-neon-purple text-xl"></i>
+                            <span class="font-semibold text-sm">VFX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Decorative image placeholder -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-neon-purple to-neon-blue rounded-2xl transform rotate-3 scale-105 opacity-50 blur-sm"></div>
+                    <img src="https://placehold.co/600x400/1a1a1a/bc13fe?text=Game+Developer\nWorkspace" alt="Developer Workspace" class="relative z-10 rounded-2xl border border-gray-700 shadow-2xl w-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assets Section -->
+    <section id="assets" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Featured <span class="text-neon-blue">Assets</span></h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">Proud publisher on the Unity Asset Store. Check out my latest asset packs designed to accelerate your game development workflow.</p>
+            </div>
+
+            <!-- Grid Layout for Asset Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Unity Environment -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 box-glow transition-all duration-300 group cursor-pointer">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Screenshot 2026-08-22 143756.jpg" alt="Unity Environment Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-dark/80 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-neon-blue">Environment</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-blue transition-colors">Stylized Village Environment</h3>
+                        <p class="text-gray-400 text-sm mb-4">Level design and lighting setup directly within the Unity engine, creating a vibrant and immersive atmosphere.</p>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
+                            <span class="text-gray-400 text-sm"><i class="fa-brands fa-unity text-white"></i> Unity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Blender Modeling -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 box-glow transition-all duration-300 group cursor-pointer">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Screenshot 2026-08-04 123004.jpg" alt="Blender 3D Modeling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-dark/80 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-[#f5792a]">3D Modeling</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#f5792a] transition-colors">Modular Building Assets</h3>
+                        <p class="text-gray-400 text-sm mb-4">Precision 3D modeling and UV mapping in Blender to create optimized, game-ready architectural structures.</p>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
+                            <span class="text-gray-400 text-sm">Blender</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Weapons Pack -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 box-glow transition-all duration-300 group cursor-pointer">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Screenshot 2026-09-22 151014.jpg" alt="Fantasy Swords Asset Pack" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-dark/80 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-neon-purple">Weapons</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-purple transition-colors">Fantasy Swords Pack</h3>
+                        <p class="text-gray-400 text-sm mb-4">A vast collection of stylized melee weapons with varying rarities and elemental themes, ready for RPGs.</p>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
+                            <span class="text-gray-400 text-sm"><i class="fa-brands fa-unity text-white"></i> Unity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Substance Texturing 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 box-glow transition-all duration-300 group cursor-pointer">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Screenshot 2026-09-13 003210.jpg" alt="Substance Painter Base Texturing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-dark/80 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-[#85c924]">Texturing</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#85c924] transition-colors">Material Foundation</h3>
+                        <p class="text-gray-400 text-sm mb-4">Establishing base materials, masks, and layer hierarchies in Adobe Substance 3D Painter.</p>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
+                            <span class="text-gray-400 text-sm">Substance 3D</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 5: Substance Texturing 2 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 box-glow transition-all duration-300 group cursor-pointer">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="Screenshot 2026-09-14 194659.jpg" alt="Substance Painter Detailing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 right-3 bg-dark/80 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-[#85c924]">Texturing</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-[#85c924] transition-colors">Intricate Detailing</h3>
+                        <p class="text-gray-400 text-sm mb-4">Adding normal maps, wear-and-tear, and high-fidelity carved details to props for a premium look.</p>
+                        <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-800">
+                            <span class="text-gray-400 text-sm">Substance 3D</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center gap-2 border border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-dark font-bold py-3 px-8 rounded-full transition-all duration-300">
+                    <i class="fa-brands fa-unity"></i> View All on Unity Asset Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-darker border-t border-gray-900 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-xl font-bold text-white">
+                <i class="fa-solid fa-gamepad text-neon-purple"></i>
+                Cowstray <span class="text-neon-blue">Games</span>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors text-2xl">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors text-2xl">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors text-2xl">
+                    <i class="fa-brands fa-artstation"></i>
+                </a>
+            </div>
+        </div>
+        <div class="text-center text-gray-600 text-sm mt-8">
+            &copy; 2026 Cowstray Games. All rights reserved. Built for Game Developers.
+        </div>
+    </footer>
+
+</body>
+</html>
